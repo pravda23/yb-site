@@ -249,17 +249,19 @@ table {
     justify-content: center;
     background-color: var(--color-primary-100);
     font-size: 2rem;
+    height: 100vh;
 }
 
 .fa-solid {
     color: white;
+    padding: 10px;
 }
 
 #center-container {
     display: inherit;
     justify-content: space-between;
     align-items: center;
-    height: 60vh;
+    height: 100vh;
 }
 
 #top {
@@ -288,14 +290,19 @@ table {
 
 #left {
     display: inherit;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
-    align-items: left;
-    width: 15vw;
+    margin-left: -100vw;
+    width: 115vw;
     height: 100%;
+    background-color: var(--color-primary-500);
     /* background-color: orangered; */
-    background-color: var(--color-primary-500)
+    transition: .2s ease-in;
+}
+
+#left:hover {
+    transform: translateX(71%)
 }
 
 #right {
