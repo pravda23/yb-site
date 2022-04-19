@@ -1,3 +1,5 @@
+const arr = ['left', 'right', 'top', 'bottom']
+
 // selectors 
 const top01 = document.querySelector('.top')
 const left = document.querySelector('.left')
@@ -10,16 +12,23 @@ const bottomOverlay = document.querySelector('.bottomOverlay')
 
 // // event listeners
 
-left.addEventListener('click', (e) => {
-    e.target.classList.toggle('left' + 'Overlay')
+this.addEventListener('click', (i) => {
+    console.log()
+    for (j in arr) {
+        if (i.target.classList[0] === arr[j]) {
+
+            i.target.classList.toggle(`${i.target.classList[0]}Overlay`)
+        }
+
+    }
 })
 
-right.addEventListener('click', (e) => {
-    e.target.classList.toggle('rightOverlay')
-})
-top01.addEventListener('click', (e) => {
-    e.target.classList.toggle('topOverlay')
-})
-bottom.addEventListener('click', (e) => {
-    e.target.classList.toggle('bottomOverlay')
-})
+// this.addEventListener('click', (i) => {
+//     console.log()
+//     for (j in arr) {
+//         if (i.target.classList[0] === arr[j]) {
+//             i.target.classList.toggle(`${i.target.classList[0]}Overlay`)
+//         }
+
+//     }
+// })

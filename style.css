@@ -197,7 +197,7 @@ display: none !important;
 }
 
 .topOverlay {
-    transform: translateY(71%)
+    transform: translateY(90vh)
 }
 
 .bottom {
@@ -212,7 +212,7 @@ display: none !important;
 }
 
 .bottomOverlay {
-    transform: translateY(-71%)
+    transform: translateY(-90vh)
 }
 
 .leftOverlay {
