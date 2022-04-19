@@ -52,84 +52,7 @@
 html,
 body,
 div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+span {
     font-family: 'Poppins', Arial;
     margin: 0;
     padding: 0;
@@ -137,6 +60,7 @@ video {
     font: inherit;
     font-size: 100%;
     vertical-align: baseline;
+    overflow: hidden;
 }
 
 
@@ -190,33 +114,28 @@ table {
 /* Links that point to a location on the same page will scroll
 
                                               
-                                              @media (prefers-reduced-motion: no-preference) {
-                                                  html {
-                                                      scroll-behavior: smooth;
-                                                  }
-                                              }
-
-                                              
-                                              .visually-hidden:not(:focus):not(:active),
-                                              .sr-only:not(:focus):not(:active) {
-                                                  clip: rect(0 0 0 0);
-                                                  clip-path: inset(50%);
-                                                  height: 1px;
-                                                  overflow: hidden;
-                                                  position: absolute;
-                                                  white-space: nowrap;
-                                                  width: 1px;
-                                              }
-                                              
-                                              [hidden] {
-                                                  display: none !important;
-                                              }
-                                              /* Ensures disabled elements do not accept events */
-
-[disabled] {
-    pointer-events: none !important;
-    cursor: not-allowed !important;
+@media (prefers-reduced-motion: no-preference) {
+html {
+scroll-behavior: smooth;
 }
+}
+
+
+.visually-hidden:not(:focus):not(:active),
+.sr-only:not(:focus):not(:active) {
+clip: rect(0 0 0 0);
+clip-path: inset(50%);
+height: 1px;
+overflow: hidden;
+position: absolute;
+white-space: nowrap;
+width: 1px;
+}
+
+[hidden] {
+display: none !important;
+}
+/* Ensures disabled elements do not accept events */
 
 
 /* Use primary color for focus styles */
@@ -255,63 +174,82 @@ table {
 .fa-solid {
     color: white;
     padding: 10px;
+    pointer-events: none;
 }
 
-#center-container {
+.center-container {
     display: inherit;
     justify-content: space-between;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
-#top {
-    display: inherit;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    width: 100%;
-    background-color: var(--color-primary-500)
-}
-
-#bottom {
+.top {
     display: inherit;
     justify-content: center;
-    align-items: center;
-    height: 10vh;
+    align-items: flex-end;
+    margin-top: -100vh;
+    height: 150vh;
     width: 100%;
-    background-color: var(--color-primary-500)
+    background-color: var(--color-primary-500);
+    transition: .2s ease-in;
 }
 
-#center {
+.topOverlay {
+    transform: translateY(71%)
+}
+
+.bottom {
+    display: inherit;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: -100vh;
+    height: 150vh;
+    width: 100%;
+    background-color: var(--color-primary-500);
+    transition: .2s ease-in;
+}
+
+.bottomOverlay {
+    transform: translateY(-71%)
+}
+
+.leftOverlay {
+    transform: translateX(-71%)
+}
+
+.center {
     display: inherit;
     justify-content: space-between;
 }
 
-#left {
+.left {
     display: inherit;
-    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     margin-left: -100vw;
     width: 115vw;
     height: 100%;
     background-color: var(--color-primary-500);
-    /* background-color: orangered; */
     transition: .2s ease-in;
 }
 
-#left:hover {
+.leftOverlay {
     transform: translateX(71%)
 }
 
-#right {
+.right {
     display: inherit;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    width: 15vw;
+    margin-right: -100vw;
+    width: 115vw;
     height: 100%;
-    /* background-color: orangered; */
     background-color: var(--color-primary-500);
+    transition: .2s ease-in;
+}
+
+.rightOverlay {
+    transform: translateX(-71%);
 }
