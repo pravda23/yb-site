@@ -172,9 +172,10 @@ display: none !important;
 }
 
 .fa-solid {
+    cursor: pointer;
     color: white;
     padding: 10px;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .center-container {
