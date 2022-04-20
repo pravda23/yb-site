@@ -18,45 +18,59 @@ const arrows = document.querySelector('i')
 
 // // event listeners
 
-arrows.style.backgroundColor = 'red'
-this.addEventListener('click', (i) => {
-
-
-    function resetState() {
-        Object.keys(state).forEach(key => {
-            state[key] = 'off';
-        })
-    }
-
-    for (let j = 0; j <= 4; j++) {
-        resetState()
-        if (i.target.classList[0] === Object.keys(state)[j]) {
-            // console.log(i.target.classList[0])
-            // console.log(Object.values(state))
-            // let objKeys = (Object.keys(state))
-            // console.log(objKeys[1])
-            // console.log(Object.keys(state)[j])
-
-            state[i.target.classList[0]] = 'on'
-            console.log(state)
-        }
-
-        Object.keys(state).forEach(value => {
-            if (state[value] === 'off') {
-                i.target.classList.toggle(`${i.target.classList[0]}Overlay`)
-            }
-            console.log(state[value])
-        })
-    }
-
-})
-
+// arrows.style.backgroundColor = 'red'
 // this.addEventListener('click', (i) => {
-//     console.log()
-//     for (j in arr) {
-//         if (i.target.classList[0] === arr[j]) {
-//             i.target.classList.toggle(`${i.target.classList[0]}Overlay`)
+
+
+//     function resetState() {
+//         Object.keys(state).forEach(key => {
+//             state[key] = 'off';
+//         })
+//     }
+
+//     for (let j = 0; j <= 4; j++) {
+//         resetState()
+//         if (i.target.classList[0] === Object.keys(state)[j]) {
+//             // console.log(i.target.classList[0])
+//             // console.log(Object.values(state))
+//             // let objKeys = (Object.keys(state))
+//             // console.log(objKeys[1])
+//             // console.log(Object.keys(state)[j])
+
+//             state[i.target.classList[0]] = 'on'
+//                 // console.log(state)
 //         }
 
+//         Object.keys(state).forEach(value => {
+//             if (state[value] === 'off') {
+//                 i.target.classList.toggle(`${i.target.classList[0]}Overlay`)
+//             }
+//             // console.log(state[value])
+//         })
 //     }
+
 // })
+
+
+
+left.addEventListener('click', restartAnimation, false)
+
+function restartAnimation(e) {
+
+    this.style.animationName = ""
+
+    this.addEventListener('click', () => {
+
+        // requestAnimationFrame(() => {
+        this.classList.toggle('leftOverlay')
+
+        // left.classList.toggle('left')
+        // left.classList.toggle('left')
+        // this.style.animationName = ""
+        this.style.animationName = "scaleDown"
+            // this.classList.remove('leftOverlay')
+        console.log(this.classList)
+            // })
+
+    })
+}
