@@ -1,5 +1,5 @@
 :root {
-    font-family: 'Poppins';
+    font-family: 'Poppins', 'Arial';
     /* Fonts */
     --font-body: 'Poppins', Arial;
     --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
@@ -9,15 +9,15 @@
     --color-gray-500: #707682;
     --color-gray-900: #2D2F34;
     --color-primary-100: #E6F1FF;
-    --color-primary-500: #64b2fb;
-    --color-primary-900: #052E55;
+    --color-primary-500: #b3d0e7;
+    --color-primary-900: #8bc0f1;
     --color-secondary-100: #FFF9E6;
     --color-secondary-500: #D08200;
     --color-secondary-900: #4F3304;
     --color-tertiary-100: #E6F7EB;
     --color-tertiary-500: #00883E;
     --color-tertiary-900: #033419;
-    --page-bg-color: white;
+    /* --page-bg-color: #64b2fb; */
     /* Spacing */
     --space: 1.6rem;
     /* Should equal body line-height */
@@ -40,9 +40,6 @@
     --ms--2: calc(var(--ms--1) / var(--ratio));
 }
 
-
-/* END !SECTION TOKENS */
-
 * {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -54,88 +51,20 @@ body,
 div,
 span {
     font-family: 'Poppins', Arial;
+    color: var(--color-gray-100);
     margin: 0;
     padding: 0;
     border: 0;
-    font: inherit;
     font-size: 100%;
     vertical-align: baseline;
     overflow: hidden;
 }
 
 
-/* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-    display: block;
-}
-
-body {
-    line-height: 1;
-}
-
-ol,
-ul {
-    list-style: none;
-}
-
-blockquote,
-q {
-    quotes: none;
-}
-
-blockquote::before,
-blockquote::after,
-q::before,
-q::after {
-    content: '';
-    content: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-
-/* END !SECTION RESET */
-
-
-/* Links that point to a location on the same page will scroll
-
-                                              
-@media (prefers-reduced-motion: no-preference) {
-html {
-scroll-behavior: smooth;
-}
-}
-
-
-.visually-hidden:not(:focus):not(:active),
-.sr-only:not(:focus):not(:active) {
-clip: rect(0 0 0 0);
-clip-path: inset(50%);
-height: 1px;
-overflow: hidden;
-position: absolute;
-white-space: nowrap;
-width: 1px;
-}
-
-[hidden] {
-display: none !important;
-}
-/* Ensures disabled elements do not accept events */
+/* body.preload * {
+    animation-duration: 0s !important;
+    -webkit-animation-duration: 0s !important;
+} */
 
 
 /* Use primary color for focus styles */
@@ -148,18 +77,6 @@ display: none !important;
 }
 
 
-/* Adds a margin above an element when it is the target of an ID link */
-
-* {
-    scroll-margin-top: var(--space);
-    scroll-margin-bottom: var(--space);
-}
-
- ::selection {
-    background-color: var(--color-primary-100);
-}
-
-
 /* ~ */
 
 .main-container {
@@ -169,13 +86,21 @@ display: none !important;
     background-color: var(--color-primary-100);
     font-size: 2rem;
     height: 100vh;
+    z-index: 0;
+    /* padding: 1rem; */
 }
 
 .fa-solid {
-    cursor: pointer;
+    pointer-events: none;
+    /* cursor: pointer; */
     color: white;
     padding: 10px;
-    /* pointer-events: none; */
+}
+
+.rightarrow {
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: red; */
 }
 
 .center-container {
@@ -184,6 +109,12 @@ display: none !important;
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    z-index: 1;
+}
+
+.center {
+    display: inherit;
+    justify-content: space-between;
 }
 
 .top {
@@ -195,58 +126,11 @@ display: none !important;
     width: 100%;
     background-color: var(--color-primary-500);
     transition: .2s ease-in;
-}
-
-.topOverlay {
-    transform: translateY(90vh)
-}
-
-.bottom {
-    display: inherit;
-    justify-content: center;
-    align-items: flex-start;
-    margin-bottom: -100vh;
-    height: 150vh;
-    width: 100%;
-    background-color: var(--color-primary-500);
-    transition: .2s ease-in;
-}
-
-.bottomOverlay {
-    /* transform: translateY(-90vh) */
-}
-
-.leftOverlay {
-    /* transform: translateX(-71%) */
-}
-
-.center {
-    display: inherit;
-    justify-content: space-between;
-}
-
-.left {
-    display: inherit;
-    justify-content: flex-end;
-    align-items: center;
-    margin-left: -100vw;
-    width: 115vw;
-    height: 100%;
-    background-color: var(--color-primary-500);
-    /* animation-name: scaleUp; */
-    animation-iteration-count: 1;
-    animation-duration: 1s;
+    animation-name: scaleDown;
+    animation-duration: .6s;
     animation-fill-mode: both;
-    animation-name: none;
-    /* transition: .2s ease-in; */
-}
-
-.leftOverlay {
-    animation-name: scaleUp;
-    animation-iteration-count: 1;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    /* transform: translateX(71%) */
+    box-shadow: 0px 0px 20px 0px var(--color-gray-900);
+    z-index: 2;
 }
 
 .right {
@@ -258,10 +142,75 @@ display: none !important;
     height: 100%;
     background-color: var(--color-primary-500);
     transition: .2s ease-in;
+    animation-name: scaleDown;
+    animation-duration: .6s;
+    animation-fill-mode: both;
+    box-shadow: 0px 0px 20px 0px var(--color-gray-900);
+    z-index: 3;
 }
 
-.rightOverlay {
-    transform: translateX(-71%);
+.rightcol {
+    pointer-events: none;
+    display: inherit;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* background-color: var(--color-primary-900); */
+    padding: .5rem;
+    border-radius: 0rem .6rem .6rem 0rem;
+}
+
+.bottom {
+    display: inherit;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: -100vh;
+    height: 150vh;
+    width: 100%;
+    background-color: var(--color-primary-500);
+    transition: .2s ease-in;
+    animation-name: scaleDown;
+    animation-duration: .6s;
+    animation-fill-mode: both;
+    box-shadow: 10px 0px 0px 0px var(--color-gray-900);
+    box-shadow: 0px 0px 20px 0px var(--color-gray-900);
+    z-index: 4;
+}
+
+.left {
+    display: inherit;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: -100vw;
+    width: 115vw;
+    height: 100%;
+    background-color: var(--color-primary-500);
+    animation-name: scaleDown;
+    animation-duration: .6s;
+    animation-fill-mode: both;
+    box-shadow: 0px 10px 0px 00px var(--color-gray-900);
+    box-shadow: 0px 0px 20px 0px var(--color-gray-900);
+}
+
+.leftcol {
+    pointer-events: none;
+    display: inherit;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* background-color: var(--color-primary-900); */
+    padding: .5rem;
+    border-radius: .6rem 0rem 0rem .6rem;
+}
+
+.overlayUp {
+    animation-name: scaleUp;
+    animation-iteration-count: 1;
+    animation-duration: .6s;
+    animation-fill-mode: both;
+}
+
+.nav {
+    pointer-events: none;
+    /* background-color: #707682; */
 }
 
 @keyframes scaleUp {
