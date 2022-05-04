@@ -83,16 +83,18 @@ span {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--color-primary-100);
-    font-size: 2rem;
+    background: no-repeat center;
+    background-image: url(Imported/Pics/03-main-lightblue.jpg);
+    background-size: cover;
+    font-size: 3.2vw;
     height: 100vh;
     z-index: 0;
     /* padding: 1rem; */
 }
 
 .fa-solid {
-    pointer-events: none;
-    /* cursor: pointer; */
+    /* pointer-events: none; */
+    /* cursor: all-scroll; */
     color: white;
     padding: 10px;
 }
@@ -100,7 +102,15 @@ span {
 .rightarrow {
     display: flex;
     justify-content: flex-end;
-    /* background-color: red; */
+}
+
+.fa-circle-right {
+    animation-name: pulseRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    /* color: red; */
 }
 
 .center-container {
@@ -109,28 +119,25 @@ span {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    z-index: 1;
+    z-index: 10;
 }
 
 .center {
     display: inherit;
     justify-content: space-between;
+    color: var(--color-primary-500);
 }
 
 .top {
     display: inherit;
     justify-content: center;
-    align-items: flex-end;
-    margin-top: -100vh;
-    height: 150vh;
+    align-items: center;
+    /* margin-top: -100vh; */
+    height: 20vh;
+    max-height: 9vh;
     width: 100%;
-    background-color: var(--color-primary-500);
-    transition: .2s ease-in;
-    animation-name: scaleDown;
-    animation-duration: .6s;
-    animation-fill-mode: both;
-    box-shadow: 0px 0px 20px 0px var(--color-gray-900);
-    z-index: 2;
+    /* background-color: yellowgreen; */
+    z-index: 0;
 }
 
 .right {
@@ -140,13 +147,13 @@ span {
     margin-right: -100vw;
     width: 115vw;
     height: 100%;
-    background-color: var(--color-primary-500);
-    transition: .2s ease-in;
+    background-color: none;
+    /* transition: .2s ease-in; */
     animation-name: scaleDown;
     animation-duration: .6s;
     animation-fill-mode: both;
-    box-shadow: 0px 0px 20px 0px var(--color-gray-900);
-    z-index: 3;
+    box-shadow: 0px 30px 20px 0px var(--color-gray-900);
+    z-index: 1;
 }
 
 .rightcol {
@@ -162,18 +169,19 @@ span {
 .bottom {
     display: inherit;
     justify-content: center;
-    align-items: flex-start;
-    margin-bottom: -100vh;
-    height: 150vh;
+    align-items: center;
+    /* margin-bottom: -100vh; */
+    height: 20vh;
+    max-height: 9vh;
     width: 100%;
-    background-color: var(--color-primary-500);
-    transition: .2s ease-in;
+    background-color: none;
+    /* transition: .2s ease-in; */
     animation-name: scaleDown;
     animation-duration: .6s;
     animation-fill-mode: both;
-    box-shadow: 10px 0px 0px 0px var(--color-gray-900);
-    box-shadow: 0px 0px 20px 0px var(--color-gray-900);
-    z-index: 4;
+    /* box-shadow: 10px 0px 0px 0px var(--color-gray-900); */
+    /* box-shadow: 0px 0px 20px 0px var(--color-gray-900); */
+    z-index: 1;
 }
 
 .left {
@@ -183,12 +191,13 @@ span {
     margin-left: -100vw;
     width: 115vw;
     height: 100%;
-    background-color: var(--color-primary-500);
+    background-color: none;
     animation-name: scaleDown;
     animation-duration: .6s;
     animation-fill-mode: both;
-    box-shadow: 0px 10px 0px 00px var(--color-gray-900);
-    box-shadow: 0px 0px 20px 0px var(--color-gray-900);
+    box-shadow: 0px 30px 20px 0px var(--color-gray-900);
+    /* box-shadow: 0px 0px 20px 0px red; */
+    z-index: 1;
 }
 
 .leftcol {
@@ -196,9 +205,40 @@ span {
     display: inherit;
     flex-direction: column;
     justify-content: flex-end;
-    /* background-color: var(--color-primary-900); */
+    align-items: flex-end;
+    /* background-color: green; */
     padding: .5rem;
-    border-radius: .6rem 0rem 0rem .6rem;
+    /* border-radius: .6rem 0rem 0rem .6rem; */
+    opacity: 100%;
+}
+
+.left-text {
+    background-color: red;
+    display: flex;
+    margin-right: 0px;
+    max-width: 12vw;
+    padding: .1rem;
+    /* justify-content: right; */
+    /* align-items: flex-end; */
+    /* transform: scale(.5) */
+    font-size: .5rem;
+}
+
+.fa-circle-left {
+    animation-name: pulseLeft;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    /* color: red; */
+}
+
+.flipArrow {
+    animation-name: flipArrow;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-direction: normal;
 }
 
 .overlayUp {
@@ -213,20 +253,60 @@ span {
     /* background-color: #707682; */
 }
 
+
+/* animations */
+
 @keyframes scaleUp {
     0% {
         transform: scale(1, 1);
     }
+    10% {
+        box-shadow: 0px 0px 0px 0px var(--color-gray-900);
+    }
     100% {
         transform: scale(2, 2);
+        /* opacity: 100%; */
+        background-color: var(--color-primary-500);
+        box-shadow: 0px 0px 0px 0px var(--color-gray-900);
     }
 }
 
 @keyframes scaleDown {
     0% {
         transform: scale(2, 2);
+        opacity: 100%;
+        background-color: var(--color-primary-500)
+    }
+    10% {
+        box-shadow: 0px 0px 0px 0px var(--color-gray-900);
     }
     100% {
         transform: scale(1, 1);
+        /* box-shadow: 0px 0px 0px 0px var(--color-gray-900); */
+        /* background-color: none; */
+    }
+}
+
+@keyframes pulseRight {
+    0% {
+        transform: translateX(.5rem)
+    }
+    100% {
+        transform: translateX(-.5rem)
+    }
+}
+
+@keyframes pulseLeft {
+    0% {
+        transform: translateX(-.5rem)
+    }
+    100% {
+        transform: translateX(.5rem)
+    }
+}
+
+@keyframes flipArrow {
+    100% {
+        transform: rotate(.5turn)
     }
 }
