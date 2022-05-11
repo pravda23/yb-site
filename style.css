@@ -11,6 +11,9 @@
     --color-primary-100: #E6F1FF;
     --color-primary-500: #cdd1d4;
     --color-primary-900: #2a90f0;
+    --color-black-100: rgba(0, 0, 0, .3);
+    --color-black-500: rgba(0, 0, 0, .8);
+    --color-black-000: rgba(0, 0, 0, 0);
 }
 
 * {
@@ -28,7 +31,7 @@ span {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
+    font-size: 1.4vw;
     vertical-align: baseline;
     overflow: hidden;
 }
@@ -59,15 +62,13 @@ span {
     background: no-repeat center;
     background-image: url(/imported/pics/03-main-lightblue.jpg);
     background-size: cover;
-    font-size: 3.2vw;
+    font-size: 3vw;
     height: 100vh;
     z-index: 0;
     /* padding: 1rem; */
 }
 
 .fa-solid {
-    /* pointer-events: none; */
-    /* cursor: all-scroll; */
     color: white;
     padding: 10px;
 }
@@ -77,68 +78,61 @@ span {
     justify-content: flex-start;
 }
 
-.fa-circle-right {
-    animation-name: pulseRight;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-    /* color: red; */
-}
-
 .center-container {
     display: inherit;
     justify-content: space-between;
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    z-index: 10;
+    /* z-index: 10; */
 }
 
 .center {
     display: inherit;
     justify-content: space-between;
     color: var(--color-primary-500);
+    z-index: 10;
 }
 
 .top {
     display: inherit;
     justify-content: flex-start;
     align-items: center;
-    height: 20vh;
+    height: 25vh;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     /* max-height: 9vh; */
     width: 100%;
     z-index: 0;
+    /* background-color: red; */
     /* background-color: yellow; */
 }
 
 .nav-logo {
     position: absolute;
-    height: 50vh;
+    height: 30vh;
     width: auto;
     top: 0px;
-    left: 0px;
+    left: 15px;
+    padding: .5vw;
     /* z-index: 2; */
 }
 
 .nav-header {
+    /* background: red; */
+    position: absolute;
+    top: 6vh;
     pointer-events: none;
-    font-size: 5vw;
-    color: var(--color-primary-500);
-    /* background-color: yellow; */
-    margin-left: 30px;
+    color: var(--color-black-500);
+    margin-left: 10vw;
     z-index: 1;
 }
 
 .nav-gradient {
-    /* display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start; */
+    background-image: linear-gradient(var(--color-black-500), var(--color-black-000));
     position: absolute;
+    top: 0px;
     margin: 0px;
     width: 100%;
     height: 15vh;
@@ -151,15 +145,12 @@ span {
 
 .right {
     display: inherit;
-    justify-content: flex-start;
     align-items: center;
-    margin-right: -100vw;
+    margin-right: -95vw;
     width: 115vw;
     height: 100%;
-    background-color: none;
-    /* transition: .2s ease-in; */
     animation-name: scaleDown;
-    animation-duration: .6s;
+    animation-duration: .3s;
     animation-fill-mode: both;
     box-shadow: 0px 30px 20px 0px var(--color-gray-900);
     z-index: 1;
@@ -171,61 +162,53 @@ span {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    padding: .5rem;
-    border-radius: 0rem .6rem .6rem 0rem;
+    padding: 1rem;
 }
 
 .right-header {
+    position: absolute;
+    font-size: 3vw;
+    top: 50%;
+    left: 3%;
+    font-size: 3vw;
     color: var(--color-gray-100);
+    /* background: radial-gradient(var(--color-black-500), var(--color-black-000)); */
+    padding: 1vw;
+    text-shadow: .5vw .5vw .8vw black;
 }
 
 .right-text {
-    display: flex;
-    margin: 10px;
+    position: absolute;
+    top: 35%;
+    left: 3%;
     max-width: 30%;
-    padding: 1rem;
-    font-size: .5rem;
+    padding: 3rem;
     color: var(--color-gray-100);
+    line-height: 1.9vh;
 }
 
-
-/* .leftcol {
-    pointer-events: none;
-    display: inherit;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: .5rem;
-    opacity: 100%;
-}
-
-.left-text {
-    display: flex;
-    margin: 10px;
-    max-width: 30%;
-    padding: 1rem;
-    font-size: .5rem;
-    color: var(--color-gray-100);
-} */
-
-.left-header {
-    color: var(--color-gray-100);
-    text-align: right;
+.fa-circle-left {
+    position: absolute;
+    top: 30%;
+    font-size: 4vw;
+    animation-name: pulseLeft;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
 }
 
 .left {
     display: inherit;
-    justify-content: flex-end;
     align-items: center;
-    margin-left: -100vw;
+    margin-left: -95vw;
     width: 115vw;
     height: 100%;
-    background-color: none;
     animation-name: scaleDown;
-    animation-duration: .6s;
+    animation-duration: .3s;
     animation-fill-mode: both;
     box-shadow: 0px 30px 20px 0px var(--color-gray-900);
-    /* box-shadow: 0px 0px 20px 0px red; */
+    /* background-color: var(--color-black-100); */
     z-index: 1;
 }
 
@@ -233,29 +216,46 @@ span {
     pointer-events: none;
     display: inherit;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-end;
-    padding: .5rem;
-    opacity: 100%;
+    padding: 1rem;
 }
 
-.left-text {
-    display: flex;
-    margin: 10px;
-    max-width: 30%;
-    padding: 1rem;
-    font-size: .5rem;
+.left-header {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    font-size: 3vw;
     color: var(--color-gray-100);
     text-align: right;
+    padding: 1vw;
+    text-shadow: .5vw .5vw .8vw black;
+    /* background-color: red */
 }
 
-.fa-circle-left {
-    animation-name: pulseLeft;
+.fa-circle-right {
+    position: absolute;
+    left: 93%;
+    top: 30%;
+    font-size: 4vw;
+    animation-name: pulseRight;
     animation-duration: 1s;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
     /* color: red; */
+    /* transform: scale(40) */
+}
+
+.left-text {
+    position: absolute;
+    top: 35%;
+    right: 3%;
+    max-width: 30%;
+    padding: 2rem;
+    color: var(--color-gray-100);
+    text-align: right;
+    line-height: 1.9vh;
 }
 
 .flipArrow {
@@ -286,9 +286,11 @@ span {
     width: 100%;
     font-size: 85%;
     border: 1rem solid var(--color=gray-100);
+    padding-right: 2vw;
     /* background: radial-gradient(circle at right, rgba(240, 236, 233, 1) 0%, rgba(240, 236, 233, 1) 60%, rgba(240, 236, 233, 0) 80%); */
     /* background: radial-gradient(circle at right, rgb(19, 19, 19) 0%, rgb(238, 238, 238) 60%, rgba(240, 236, 233, 0) 80%); */
     color: var(--color-gray-100);
+    background-image: linear-gradient(var(--color-black-000), var(--color-black-500));
     z-index: 1;
 }
 
@@ -303,16 +305,16 @@ span {
         box-shadow: 0px 0px 0px 0px var(--color-gray-900);
     }
     100% {
-        transform: scale(2, 2);
+        transform: scale(1.8, 1.8);
         /* opacity: 100%; */
-        background-color: var(--color-primary-500);
+        background-color: var(--color-black-500);
         box-shadow: 0px 0px 0px 0px var(--color-gray-900);
     }
 }
 
 @keyframes scaleDown {
     0% {
-        transform: scale(2, 2);
+        transform: scale(1.8, 1.8);
         opacity: 100%;
         background-color: var(--color-primary-500)
     }
@@ -347,5 +349,29 @@ span {
 @keyframes flipArrow {
     100% {
         transform: rotate(.5turn)
+    }
+}
+
+@media only screen and (min-width:600px) {
+    .left-text,
+    .right-text {
+        font-size: 1vw;
+    }
+    .left-header,
+    .right-header {
+        font-size: 3vw;
+    }
+    .bottom {
+        background-color: green;
+    }
+}
+
+@media only screen and (min-width:1000px) {
+    .left-text,
+    .right-text {
+        font-size: .8vw;
+    }
+    .bottom {
+        background-color: yellow;
     }
 }
