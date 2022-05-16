@@ -13,8 +13,8 @@ const rightHeader = document.querySelector('.right-header')
 // console.log(arrows.classList)
 
 right.addEventListener('click', (event) => {
-    left.classList.remove('overlayUp')
-    event.target.classList.toggle('overlayUp')
+    left.classList.remove('scaleUp')
+    event.target.classList.toggle('scaleUp')
     leftArrow.classList.toggle('flipArrow')
     rightText.classList.toggle('hidden')
     leftText.classList.add('hidden')
@@ -24,8 +24,8 @@ right.addEventListener('click', (event) => {
 })
 
 left.addEventListener('click', (event) => {
-    right.classList.remove('overlayUp')
-    event.target.classList.toggle('overlayUp')
+    right.classList.remove('scaleUp')
+    event.target.classList.toggle('scaleUp')
     rightArrow.classList.toggle('flipArrow')
     leftText.classList.toggle('hidden')
     rightText.classList.add('hidden')
