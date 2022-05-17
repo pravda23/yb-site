@@ -14,6 +14,9 @@
     --color-black-100: rgba(0, 0, 0, .3);
     --color-black-500: rgba(0, 0, 0, .8);
     --color-black-000: rgba(0, 0, 0, 0);
+    --fs-600: clamp(2.5rem, 2vw + 1rem, 3.6rem);
+    --fs-500: clamp(1.8rem, 1.5vw + .4rem, 5rem);
+    --fs-400: clamp(.2rem, .6vw + .5rem, 2.8rem);
 }
 
 *,
@@ -27,16 +30,21 @@
 html,
 body,
 div,
-span {
+span,
+p {
     box-sizing: border-box;
     font-family: 'Julius Sans One', Arial;
+    font-size: var(--fs-400);
     color: var(--color-gray-100);
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 2.6vw;
     vertical-align: baseline;
     overflow: hidden;
+}
+
+a:hover {
+    font-weight: bold;
 }
 
 
@@ -94,11 +102,26 @@ span {
 }
 
 .nav-logo {
+    width: 10vw;
     /* background-color: yellow; */
-    max-height: 15vh;
-    width: auto;
+    max-height: 20vh;
+    /* min-height: 6vh; */
+    /* max-width: 5vw; */
+    /* width: auto; */
     padding: .2em;
     /* z-index: 2; */
+}
+
+.logo {
+    width: 100%;
+    max-height: 18vh;
+    padding: .1rem;
+    /* height: 550px; */
+    object-fit: cover;
+}
+
+img {
+    max-height: 18vh;
 }
 
 .nav-header-container {
@@ -109,11 +132,13 @@ span {
 
 .nav-header {
     pointer-events: none;
-    font-size: 8vw;
+    font-size: var(--fs-600);
+    letter-spacing: .6rem;
 }
 
 .nav-subheader {
-    font-size: 4vw;
+    font-size: var(--fs-500);
+    letter-spacing: .4rem;
 }
 
 .nav-gradient {
@@ -142,15 +167,6 @@ span {
     z-index: 1;
 }
 
-.left-header,
-.right-header {
-    position: absolute;
-    top: 50%;
-    font-size: 6vw;
-    color: var(--color-gray-100);
-    padding: 1vw;
-}
-
 .leftcol,
 .rightcol {
     pointer-events: none;
@@ -159,11 +175,20 @@ span {
     padding: 1rem;
 }
 
+.left-header,
+.right-header {
+    position: absolute;
+    top: 50%;
+    font-size: var(--fs-500);
+    color: var(--color-gray-100);
+    padding: 1vw;
+}
+
 .left-arrow,
 .right-arrow {
     position: absolute;
     top: 30%;
-    font-size: 8vw;
+    font-size: var(--fs-600);
     animation-duration: 1s;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
@@ -175,8 +200,9 @@ span {
     position: absolute;
     top: 35%;
     padding: 2rem;
+    font-size: var(--fs-400);
     color: var(--color-gray-100);
-    line-height: 1.9vh;
+    line-height: 1.7vh;
     max-width: 30%;
 }
 
@@ -239,28 +265,29 @@ span {
 }
 
 
-/* bottom */
+/* footer */
 
-.bottom {
-    display: inherit;
-    justify-content: flex-end;
-    align-items: center;
+.footer {
+    display: block;
+    text-align: center;
     height: 20vh;
-    max-height: 9vh;
+    margin-top: 6vw;
+    max-height: 20vh;
     width: 100%;
-    font-size: 75%;
-    border: 1rem solid var(--color=gray-100);
-    padding-right: 2vw;
+    padding: 3vw;
+    line-height: 2rem;
     color: var(--color-gray-100);
     background-image: linear-gradient(var(--color-black-000), var(--color-black-500));
     z-index: 1;
 }
 
-.bottom>a {
+.footer-item>a {
     color: inherit;
     font-family: inherit;
+    font-size: var(--fs-500);
     text-decoration: none;
     letter-spacing: .2vw;
+    line-height: 3rem;
 }
 
 .hidden {
@@ -346,7 +373,7 @@ span {
 /* green */
 
 @media only screen and (min-width:680px) {
-    .main-container {
+    /* .main-container {
         font-size: .8vw;
     }
     .left-text,
@@ -356,9 +383,12 @@ span {
     .left-header,
     .right-header {
         font-size: 3vw;
-    }
-    .bottom {
-        background-color: green;
+    } */
+    .footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        /* background-color: green; */
     }
 }
 
@@ -366,22 +396,23 @@ span {
 /* yellow */
 
 @media only screen and (min-width:1024px) {
-    .main-container {
+    /* .main-container {
         font-size: 3vw;
-    }
-    .left-header,
+    } */
+    /* .left-header,
     .right-header {
         font-size: 4vw;
-    }
-    .left-text,
+    } */
+    /* .left-text,
     .right-text {
         font-size: 1vw;
-    }
-    .left-arrow,
+    } */
+    /* .left-arrow,
     .right-arrow {
         font-size: 4vw;
-    }
-    .bottom {
-        background-color: yellow;
+    } */
+    .footer {
+        display: flex;
+        /* background-color: yellow; */
     }
 }
