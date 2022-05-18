@@ -12,22 +12,41 @@ const rightHeader = document.querySelector('.right-header')
 // event listeners
 // console.log(arrows.classList)
 
-right.addEventListener('click', (event) => {
-    left.classList.remove('scaleUp')
+left.addEventListener('click', (event) => {
     event.target.classList.toggle('scaleUp')
-    leftArrow.classList.toggle('flipArrow')
-    rightText.classList.toggle('hidden')
-    leftText.classList.add('hidden')
-    rightHeader.classList.toggle('hidden')
+    leftText.classList.toggle('hidden')
+    rightArrow.classList.toggle('flipArrow')
 
+    if (left.classList.contains('scaleUp')) {
+        leftHeader.classList.add('hidden')
+    } else {
+        leftHeader.classList.remove('hidden')
+    }
+    if (right.classList.contains('scaleUp')) {
+        right.classList.remove('scaleUp')
+        rightHeader.classList.remove('hidden')
+        rightText.classList.add('hidden')
+        leftArrow.classList.toggle('flipArrow')
+    }
 
 })
 
-left.addEventListener('click', (event) => {
-    right.classList.remove('scaleUp')
+right.addEventListener('click', (event) => {
     event.target.classList.toggle('scaleUp')
-    rightArrow.classList.toggle('flipArrow')
-    leftText.classList.toggle('hidden')
-    rightText.classList.add('hidden')
-    leftHeader.classList.toggle('hidden')
+    rightText.classList.toggle('hidden')
+    leftArrow.classList.toggle('flipArrow')
+
+    if (right.classList.contains('scaleUp')) {
+        rightHeader.classList.add('hidden')
+    } else {
+        rightHeader.classList.remove('hidden')
+    }
+    if (left.classList.contains('scaleUp')) {
+        left.classList.remove('scaleUp')
+        leftHeader.classList.remove('hidden')
+        leftText.classList.add('hidden')
+        rightArrow.classList.toggle('flipArrow')
+    }
+
+
 })
